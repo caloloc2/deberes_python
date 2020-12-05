@@ -43,7 +43,7 @@ def dentro_rectangulo(punto):
     
     return retorno # retorna valor
 
-numero_puntos = 2500
+numero_puntos = 25000
 Cx, Cy, R = obtener_parametros_circulo() # obtiene parametros de circulo
 W, H, Ox, Oy = obtener_parametros_rectangulo() # obtiene parametros de rectangulo
 puntos = generacion_puntos(numero_puntos) # genera puntos dentro del area
@@ -58,9 +58,6 @@ ax.set_aspect(1) # aspecto cuadrado de grafica
 circulo = plt.Circle((Cx, Cy), R, edgecolor='r', facecolor='none') # grafica el circulo
 rectangulo = plt.Rectangle((Ox, Oy), W, H, linewidth=1, edgecolor='b', facecolor='none') # grafica el rectangulo
 
-ax.add_artist(circulo) # agrega grafica al cuadro
-ax.add_artist(rectangulo) # agrega grafica al cuadro
-
 puntos_area = [] # array de puntos en area de interseccion
 for punto in puntos: # recorre todos los puntos generados
     if (dentro_rectangulo(punto) and dentro_circulo(punto)): # si cumple las dos condiciones => se encuentra dentro del area de interseccion
@@ -69,9 +66,12 @@ for punto in puntos: # recorre todos los puntos generados
     else: # si no cumple condicion => no esta dentro del area de interseccion
         ax.add_artist(plt.Circle((punto[0], punto[1]), 0.03, edgecolor='gray'))  # grafica punto en el area de interseccion en gris
 
-n = len(puntos_area) # numero total de puntos dentro del area de interseccion
-area = n / numero_puntos # calcula el area a partir del numero de puntos dentro del area de interseccion con el total de puntos generados
+ax.add_artist(circulo) # agrega grafica al cuadro
+ax.add_artist(rectangulo) # agrega grafica al cuadro
 
-plt.title('Area encontrada = '+str(area)+ "u", fontsize=8) # agrega un titulo a la grafica
+n = len(puntos_area) # numero total de puntos dentro del area de interseccion
+area = numero_puntos / n # calcula el area a partir del numero de puntos dentro del area de interseccion con el total de puntos generados
+
+plt.title('Area encontrada = '+str(area)+ " u", fontsize=8) # agrega un titulo a la grafica
 
 plt.show() # muestra la grafica
