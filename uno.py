@@ -71,8 +71,7 @@ ax.add_artist(rectangulo) # agrega grafica al cuadro
 
 area = 0
 n = len(puntos_area) # numero total de puntos dentro del area de interseccion
-if n>0:
-    area = (n/ numero_puntos) * 100 # calcula el area a partir del numero de puntos dentro del area de interseccion con el total de puntos generados
+area = (n/ numero_puntos) * 100 # calcula el area a partir del numero de puntos dentro del area de interseccion con el total de puntos generados
 
 plt.title('Area encontrada = '+str(area)+ " u", fontsize=8) # agrega un titulo a la grafica
 
