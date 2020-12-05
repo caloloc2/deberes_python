@@ -72,6 +72,6 @@ for punto in puntos: # recorre todos los puntos generados
 n = len(puntos_area) # numero total de puntos dentro del area de interseccion
 area = n / numero_puntos # calcula el area a partir del numero de puntos dentro del area de interseccion con el total de puntos generados
 
-plt.title('Area encontrada = '+str(area), fontsize=8) # agrega un titulo a la grafica
+plt.title('Area encontrada = '+str(area)+ "u", fontsize=8) # agrega un titulo a la grafica
 
 plt.show() # muestra la grafica
