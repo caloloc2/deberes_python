@@ -43,7 +43,7 @@ def dentro_rectangulo(punto):
     
     return retorno # retorna valor
 
-numero_puntos = 25000
+numero_puntos = 2500
 Cx, Cy, R = obtener_parametros_circulo() # obtiene parametros de circulo
 W, H, Ox, Oy = obtener_parametros_rectangulo() # obtiene parametros de rectangulo
 puntos = generacion_puntos(numero_puntos) # genera puntos dentro del area
@@ -69,8 +69,10 @@ for punto in puntos: # recorre todos los puntos generados
 ax.add_artist(circulo) # agrega grafica al cuadro
 ax.add_artist(rectangulo) # agrega grafica al cuadro
 
+area = 0
 n = len(puntos_area) # numero total de puntos dentro del area de interseccion
-area = numero_puntos / n # calcula el area a partir del numero de puntos dentro del area de interseccion con el total de puntos generados
+if (n>0):
+    area = numero_puntos / n # calcula el area a partir del numero de puntos dentro del area de interseccion con el total de puntos generados
 
 plt.title('Area encontrada = '+str(area)+ " u", fontsize=8) # agrega un titulo a la grafica
 
