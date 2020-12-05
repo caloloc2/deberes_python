@@ -57,24 +57,18 @@ rectangulo = plt.Rectangle((Ox, Oy), W, H, linewidth=1, edgecolor='b', facecolor
 ax.add_artist(circulo)
 ax.add_artist(rectangulo)
 
-numero_puntos_circulo = 0
-numero_puntos_rectangulo = 0
-numero_puntos_area = 0
+puntos_area = []
 
-for punto in puntos:
-    if (dentro_circulo(punto)):
-        numero_puntos_circulo += 1
 
-    if (dentro_rectangulo(punto)):
-        numero_puntos_rectangulo += 1
-
+for punto in puntos:    
     if (dentro_rectangulo(punto) and dentro_circulo(punto)):
-        numero_puntos_area += 1
-        ax.add_artist(plt.Circle((punto[0], punto[1]), 0.05, edgecolor='g'))    
+        puntos_area.append(punto)        
+        ax.add_artist(plt.Circle((punto[0], punto[1]), 0.03, edgecolor='g'))    
     else:
-        ax.add_artist(plt.Circle((punto[0], punto[1]), 0.05, edgecolor='gray'))
+        ax.add_artist(plt.Circle((punto[0], punto[1]), 0.03, edgecolor='gray'))
 
-area = numero_puntos_area / numero_puntos
+n = len(puntos_area)
+area = n / numero_puntos
 
 plt.title('Area encontrada = '+str(area), fontsize=8)
 
